@@ -1,0 +1,27 @@
+<form [formGroup]="levelsFormGroup" *ngIf="fullyInit">
+    <mat-card class="levelsCard">
+        <mat-card-title>Niveaux</mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="space-around start">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre de champs</mat-label>
+                <input matInput type="number" min="1" max="{{this.levelTypes.length}}" required formControlName="nbLevels">
+            </mat-form-field>
+            <mat-card fxLayout="column">
+                <div *ngFor="let i of createNumberArray(this.levelsFormGroup.value['nbLevels'])">
+                    <div fxLayout="row" formGroupName="{{i.toString()}}">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Niveau n°{{i}}</mat-label>
+                            <input matInput type="number" min="1" required formControlName="value">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Type de niveau</mat-label>
+                            <mat-select formControlName="type">
+                                <mat-option *ngFor="let levelType of levelTypes" value="{{levelType}}" required>{{levelType}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </mat-card>
+</form>

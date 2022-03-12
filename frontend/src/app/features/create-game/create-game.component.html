@@ -1,1 +1,46 @@
-<p>create-game works!</p>
+<form [formGroup]="createGameFormGroup" fxLayout="column" fxLayoutAlign="space-around center">
+
+    <button class="debug" mat-raised-button color="warn" (click)="debugCheckForm()">Vérifier le formulaire</button>
+
+    <app-identities></app-identities>
+
+    <app-resources></app-resources>
+
+    <app-levels></app-levels>
+
+    <mat-card class="armorCard">
+        <mat-card-title>Armures</mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="space-around start">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre de champs</mat-label>
+                <input matInput type="number" min="0" max="{{this.armorTypes.length}}" required formControlName="nbArmors">
+            </mat-form-field>
+            <mat-card fxLayout="column">
+                <div *ngFor="let i of createNumberArray(this.createGameFormGroup.value['nbArmors'])">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Armure n°{{i}}</mat-label>
+                        <input matInput maxlength="20" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Type d'armure</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let armorType of armorTypes" value="{{armorType}}" required>{{armorType}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-card>
+        </div>
+    </mat-card>
+    
+    <mat-card>
+        <mat-card-title>Compétences</mat-card-title>
+    </mat-card>
+
+    <!--mat-card>
+        <mat-card-title>Inventaire</mat-card-title>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-title>Statistiques</mat-card-title>
+    </mat-card-->
+</form>

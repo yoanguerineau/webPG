@@ -1,0 +1,16 @@
+<form [formGroup]="resourcesFormGroup" *ngIf="fullyInit">
+    <mat-card class="resourcesCard">
+        <mat-card-title>Ressources</mat-card-title>
+        <div fxLayout="column" fxLayoutAlign="start">
+            <div *ngFor="let resourceType of resourceTypes; let i = index" fxLayout="row" fxLayoutAlign="start">
+                <div formGroupName="{{i.toString()}}">
+                    <mat-checkbox (change)="setIsResourceSelected($event, resourceType)">{{resourceType}}</mat-checkbox>
+                    <mat-form-field *ngIf="isResourceTypeSelected(resourceType)==true" appearance="outline">
+                        <mat-label>Valeur</mat-label>
+                        <input matInput type="number" min="1" required formControlName="value">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</form>
