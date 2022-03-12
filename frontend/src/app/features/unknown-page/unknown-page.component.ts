@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  selector: 'app-unknown-page',
+  templateUrl: './unknown-page.component.html',
+  styleUrls: ['./unknown-page.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class UnknownPageComponent implements OnInit {
 
   constructor(private router: Router) { }
 
@@ -16,5 +16,4 @@ export class MenuComponent implements OnInit {
   goto(page: string) {
     this.router.navigate([page]);
   }
-
 }

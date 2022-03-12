@@ -1,5 +1,8 @@
-<mat-toolbar>
-    <span>WebPG</span>
-</mat-toolbar>
-
-<mat-card></mat-card>
+<mat-card>
+  <mat-card-title>Bienvenu sur WebPG</mat-card-title>
+  <mat-card-subtitle>Commencez votre aventure</mat-card-subtitle>
+  <mat-card-actions fxLayout="column" fxLayoutAlign="space-around center">
+    <button mat-raised-button color="primary" (click)="goto('create')">Créer une nouvelle partie</button>
+    <button mat-raised-button color="primary" (click)="goto('join')">Rejoindre une partie</button>
+  </mat-card-actions>
+</mat-card>
