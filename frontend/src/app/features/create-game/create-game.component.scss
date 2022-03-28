@@ -4,3 +4,31 @@
     top: 0px;
     z-index: 99;
 }
+
+.startGame {
+    margin-top: 50px;
+    width: 100%;
+    button {
+        font-size: 30px;
+        padding: 20px;
+    }
+    mat-divider {
+        width: 60%;
+        margin-bottom: 20px;
+        border-width: 2px;
+    }
+}
+
+h1 {
+    margin: 50px;
+    font-size: 35px;
+}
+
+.characters {
+    width: 100%;
+    text-align: center;
+}
+
+.newCharacter {
+    margin: 10px;
+}

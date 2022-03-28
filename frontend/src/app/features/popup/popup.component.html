@@ -1,8 +1,40 @@
-<h2 mat-dialog-title *ngIf="isError">Erreur</h2>
-<h2 mat-dialog-title *ngIf="!isError">Information</h2>
-<mat-dialog-content>
-    <p>{{ this.content }}</p>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Ok</button>
-</mat-dialog-actions>
+<div *ngIf="this.player.identities.length > 0">
+  <h1>Identité(s)</h1>
+  <div *ngFor="let id of this.player.identities">
+    <p>{{id.type}} : {{id.name}}</p>
+  </div>
+</div>
+<div *ngIf="this.player.resources.length > 0">
+  <h1>Ressource(s)</h1>
+  <div *ngFor="let res of this.player.resources">
+    <p>{{res.type}} : {{res.value}}</p>
+  </div>
+</div>
+<div>
+  <h1>Niveau(s)</h1>
+  <div *ngFor="let lvl of this.player.levels">
+    <p>{{lvl.type}} : {{lvl.value}}</p>
+  </div>
+</div>
+<div *ngIf="this.player.armors.length > 0">
+  <h1>Armure(s)</h1>
+  <div *ngFor="let arm of this.player.armors">
+    <p>{{arm.type}} : {{arm.value}}</p>
+  </div>
+</div>
+<div *ngIf="this.player.skills.length > 0">
+  <h1>Compétence(s)</h1>
+  <div *ngFor="let sk of this.player.skills">
+    <p>[sk.mainStat] {{sk.name}} : {{sk.value}}</p>
+  </div>
+</div>
+<div *ngIf="this.player.statistics.length > 0">
+  <h1>Statistique(s)</h1>
+  <div *ngFor="let stat of this.player.statistics">
+    <p>{{stat.name}} : {{stat.value}}</p>
+  </div>
+</div>
+<div>
+  <h1>Monnaie(s)</h1>
+  <p>{{this.player.money.name}} : {{this.player.money.value}} {{this.player.money.symbol}}</p>
+</div>

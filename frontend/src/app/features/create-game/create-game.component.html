@@ -1,11 +1,15 @@
-<!--form [formGroup]="createGameFormGroup" fxLayout="column" fxLayoutAlign="space-around center">
-
-</form-->
 <button class="debug" mat-raised-button color="warn" (click)="debugCheckForm()">Vérifier les joueurs</button>
-<button mat-raised-button color="primary" (click)="switchCharacterView()" *ngIf="!showCreateCharacter">Créer un nouveau joueur</button>
 <app-new-character *ngIf="showCreateCharacter" (characterEvent)="addCharacter($event)" (cancelCharacterEvent)="setChowCreateCharacter($event)"></app-new-character>
-<div *ngIf="!showCreateCharacter">
+<div *ngIf="!showCreateCharacter" class="characters">
+    <h1>Liste des joueurs</h1>
     <div *ngFor="let character of characterList; let i = index">
-        <button mat-raised-button (click)="showCharacterInfos(i)">Personnage n°{{i+1}}</button>
+        <button mat-button (click)="showCharacterInfos(i)">Personnage n°{{i+1}}</button>
+        <button mat-button (click)="deleteCharacter(i)"><mat-icon>delete</mat-icon></button>
     </div>
+    <button mat-button (click)="switchCharacterView()" class="newCharacter"><mat-icon>add</mat-icon></button>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-around center"  class="startGame">
+    <mat-divider></mat-divider>
+    <button mat-raised-button color="primary" [disabled]="isGameStartBlocked()" (click)="startGame()">Lancer la partie <mat-icon>play_circle_filled</mat-icon></button>
 </div>

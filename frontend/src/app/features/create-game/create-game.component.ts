@@ -35,12 +35,17 @@ export class CreateGameComponent implements OnInit {
 
   showCharacterInfos(i: number) {
     const dialogRef = this.dialog.open(PopupComponent);
-    dialogRef.componentInstance.isError = false;
-    let content = "";
-    this.characterList[i].identities.forEach(e => {
-      content+= e.type + " " + e.name + " ";
-    });
-    dialogRef.componentInstance.content = content;
+    dialogRef.componentInstance.player = this.characterList[i];
+  }
+
+  deleteCharacter(i: number) {
+    let start: Character[] = [];
+    if(i != 0) {
+      start = this.characterList.slice(0,i);
+    }
+    let end = this.characterList.slice(i+1);
+
+    this.characterList = start.concat(end);
   }
 
   switchCharacterView() {
@@ -49,5 +54,13 @@ export class CreateGameComponent implements OnInit {
   
   debugCheckForm() {
     console.log(this.characterList);
+  }
+
+  isGameStartBlocked(): boolean {
+    return (this.characterList.length == 0)
+  }
+
+  startGame() {
+    console.warn("This feature is not implemented yet");
   }
 }
