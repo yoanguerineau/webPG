@@ -1,6 +1,4 @@
 <form [formGroup]="resourcesFormGroup" *ngIf="fullyInit">
-    <mat-card class="resourcesCard">
-        <mat-card-title>Ressources</mat-card-title>
         <div fxLayout="column" fxLayoutAlign="start">
             <div *ngFor="let resourceType of resourceTypes; let i = index" fxLayout="row" fxLayoutAlign="start">
                 <div formGroupName="{{i.toString()}}">
@@ -12,5 +10,4 @@
                 </div>
             </div>
         </div>
-    </mat-card>
 </form>

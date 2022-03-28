@@ -1,0 +1,19 @@
+{
+    "identities": [{
+        "name": "Michel",
+        "type": "Prénom"
+    }],
+    "resources": [],
+    "levels": [{
+        "value": 1,
+        "type": "Personnage"
+    }],
+    "armors": [],
+    "skills": [],
+    "statistics": [],
+    "money": {
+        "name": "Euro",
+        "symbol": "€",
+        "value": 45
+    }
+}

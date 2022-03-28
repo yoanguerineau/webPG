@@ -1,35 +1,23 @@
-.mat-card {
-    width: 80%;
-    margin: 10px;
-    //box-shadow: none;
-}
-
 .mat-divider {
     width: 80%;
 }
 
-.resourcesCard {
-    .mat-checkbox {
-        margin-top: 20px;
-        margin-right: 20px;
+.componentHeader {
+    text-align: center;
+    width: 100%;
+    mat-divider {
+        transform: translate(10%);
+        width: 80%;
+        margin: 10px;
     }
 }
 
-.identitiesCard {
-    .mat-card {
-        box-shadow: none;
-    }
-}
-
-.levelsCard {
-    .mat-card {
-        box-shadow: none;
-    }
-}
-
-.armorCard {
-    .mat-card {
-        box-shadow: none;
+mat-stepper {
+    width: 90%;
+    mat-divider {
+        transform: translate(50%);
+        width: 50%;
+        margin: 20px;
     }
 }
 

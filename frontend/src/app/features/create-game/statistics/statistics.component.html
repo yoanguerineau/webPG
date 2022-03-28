@@ -1,12 +1,10 @@
 <form [formGroup]="statisticsFormGroup" *ngIf="fullyInit">
-    <mat-card class="statisticsCard">
-        <mat-card-title>Statistiques</mat-card-title>
         <div fxLayout="row" fxLayoutAlign="space-around start">
             <mat-form-field appearance="outline">
                 <mat-label>Nombre de champs</mat-label>
                 <input matInput type="number" min="0" required formControlName="nbStatistics">
             </mat-form-field>
-            <mat-card fxLayout="column" class="mainCard">
+            <div fxLayout="column" class="mainCard">
                 <div *ngFor="let i of createNumberArray(this.statisticsFormGroup.value['nbStatistics'])">
                     <mat-divider *ngIf="i>1"></mat-divider>
                     <div class="subCards" fxLayout="column" formGroupName="{{i.toString()}}">
@@ -20,7 +18,6 @@
                         </mat-form-field>
                     </div>
                 </div>
-            </mat-card>
+            </div>
         </div>
-    </mat-card>
 </form>

@@ -33,6 +33,7 @@ export class NewCharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.newCharFormGroup = this.fb.group({ });
+    console.log(this.identitiesComponent);
   }
 
   ngAfterViewInit() {

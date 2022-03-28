@@ -29,6 +29,7 @@ export class IdentitiesComponent implements OnInit {
     });
 
     this.fullyInit=true;
+    console.log("INIT");
   }
 
   createNumberArray(size: number): number[] {

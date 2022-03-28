@@ -1,22 +1,59 @@
 <form [formGroup]="newCharFormGroup" fxLayout="column" fxLayoutAlign="space-around center">
+    <div class="componentHeader">
+        <h1>Création d'un nouveau personnage</h1>
+        <button class="debug" mat-raised-button color="warn" (click)="debugCheckForm()">Vérifier le formulaire</button>
+        <mat-divider></mat-divider>
+    </div>
 
-    <button class="debug" mat-raised-button color="warn" (click)="debugCheckForm()">Vérifier le formulaire</button>
+    <mat-stepper [linear]="true">
 
-    <app-identities></app-identities>
+        <ng-template matStepperIcon="edit">
+            <mat-icon>done</mat-icon>
+        </ng-template>
 
-    <app-resources></app-resources>
+        <mat-step label="Identité(s)">
+            <mat-divider></mat-divider>
+            <app-identities></app-identities>
+            <button mat-button matStepperNext>Suivant</button>
+        </mat-step>
+        <mat-step label="Ressource(s)">
+            <mat-divider></mat-divider>
+            <app-resources></app-resources>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+        </mat-step>
+        <mat-step label="Niveau(x)">
+            <mat-divider></mat-divider>
+            <app-levels></app-levels>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+        </mat-step>
+        <mat-step label="Armure(s)">
+            <mat-divider></mat-divider>
+            <app-armors></app-armors>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+        </mat-step>
+        <mat-step label="Compétence(s)">
+            <mat-divider></mat-divider>
+            <app-skills></app-skills>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+        </mat-step>
+        <mat-step label="Statistique(s)">
+            <mat-divider></mat-divider>
+            <app-statistics></app-statistics>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+        </mat-step>
+        <mat-step label="Monnaie(s)">
+            <mat-divider></mat-divider>
+            <app-money></app-money>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button (click)="createCharacter()">Créer ce personnage</button>
+        </mat-step>
+    </mat-stepper>
 
-    <app-levels></app-levels>
-
-    <app-armors></app-armors>
-
-    <app-skills></app-skills>
-
-    <app-statistics></app-statistics>
-    
-    <app-money></app-money>
-
-    <button mat-raised-button color="primary" (click)="createCharacter()">Créer ce personnage</button>
-    <button mat-raised-button color="primary" (click)="cancelCharacter()">Annuler</button>
+    <button mat-button (click)="cancelCharacter()">Annuler</button>
 
 </form>

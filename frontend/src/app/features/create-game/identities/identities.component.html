@@ -1,12 +1,10 @@
 <form [formGroup]="identitiesFormGroup" *ngIf="fullyInit">
-    <mat-card class="identitiesCard">
-        <mat-card-title>Identité(s)</mat-card-title>
         <div fxLayout="row" fxLayoutAlign="space-around start">
             <mat-form-field appearance="outline">
                 <mat-label>Nombre de champs</mat-label>
                 <input matInput type="number" min="1" max="{{this.identitiesTypes.length}}" required formControlName="nbIdentities">
             </mat-form-field>
-            <mat-card fxLayout="column">
+            <div fxLayout="column">
                 <div *ngFor="let i of createNumberArray(this.identitiesFormGroup.value['nbIdentities'])">
                     <div formGroupName="{{i.toString()}}">
                         <mat-form-field appearance="outline">
@@ -21,7 +19,6 @@
                         </mat-form-field>
                     </div>
                 </div>
-            </mat-card>
+            </div>
         </div>
-    </mat-card>
 </form>

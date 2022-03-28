@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import playerOne from '../../../assets/json/character/playerOne.json'
 import { MatDialog } from '@angular/material/dialog';
 import { Character } from 'src/assets/models/character';
 import { PopupComponent } from '../popup/popup.component';
@@ -24,6 +25,7 @@ export class CreateGameComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.addCharacter(playerOne);
   }
 
   addCharacter(c: Character) {
