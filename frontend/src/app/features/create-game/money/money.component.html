@@ -1,0 +1,21 @@
+<form [formGroup]="moneyFormGroup" *ngIf="fullyInit">
+    <mat-card class="skillsCard">
+        <mat-card-title>Monnaie</mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="space-around start">
+            <mat-card fxLayout="column" class="mainCard">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nom</mat-label>
+                    <input matInput maxlength="20" required formControlName="name">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput maxlength="20" required formControlName="value">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Symbole</mat-label>
+                    <input matInput maxlength="4" required formControlName="symbol">
+                </mat-form-field>
+            </mat-card>
+        </div>
+    </mat-card>
+</form>

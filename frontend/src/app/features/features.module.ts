@@ -8,19 +8,22 @@ import { UnknownPageComponent } from './unknown-page/unknown-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CreateGameModule } from './create-game/create-game.module';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
     MenuComponent,
     CreateGameComponent,
     JoinGameComponent,
-    UnknownPageComponent
+    UnknownPageComponent,
+    PopupComponent,
   ],
   exports: [
     MenuComponent,
     CreateGameComponent,
     JoinGameComponent,
-    UnknownPageComponent
+    UnknownPageComponent,
+    PopupComponent,
   ],
   imports: [
     MaterialModule,

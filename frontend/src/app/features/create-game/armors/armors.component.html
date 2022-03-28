@@ -1,0 +1,27 @@
+<form [formGroup]="armorsFormGroup" *ngIf="fullyInit">
+    <mat-card class="armorCard">
+        <mat-card-title>Armures</mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="space-around start">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre de champs</mat-label>
+                <input matInput type="number" min="0" max="{{this.armorTypes.length}}" required formControlName="nbArmors">
+            </mat-form-field>
+            <mat-card fxLayout="column">
+                <div *ngFor="let i of createNumberArray(this.armorsFormGroup.value['nbArmors'])">
+                    <div fxLayout="row" formGroupName="{{i.toString()}}">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Armure n°{{i}}</mat-label>
+                            <input matInput maxlength="20" required formControlName="value">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Type d'armure</mat-label>
+                            <mat-select formControlName="type">
+                                <mat-option *ngFor="let armorType of armorTypes" value="{{armorType}}" required>{{armorType}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </mat-card>
+</form>

@@ -1,0 +1,22 @@
+<form [formGroup]="newCharFormGroup" fxLayout="column" fxLayoutAlign="space-around center">
+
+    <button class="debug" mat-raised-button color="warn" (click)="debugCheckForm()">Vérifier le formulaire</button>
+
+    <app-identities></app-identities>
+
+    <app-resources></app-resources>
+
+    <app-levels></app-levels>
+
+    <app-armors></app-armors>
+
+    <app-skills></app-skills>
+
+    <app-statistics></app-statistics>
+    
+    <app-money></app-money>
+
+    <button mat-raised-button color="primary" (click)="createCharacter()">Créer ce personnage</button>
+    <button mat-raised-button color="primary" (click)="cancelCharacter()">Annuler</button>
+
+</form>

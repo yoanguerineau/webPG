@@ -1,0 +1,66 @@
+.mat-card {
+    width: 80%;
+    margin: 10px;
+    //box-shadow: none;
+}
+
+.mat-divider {
+    width: 80%;
+}
+
+.resourcesCard {
+    .mat-checkbox {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+}
+
+.identitiesCard {
+    .mat-card {
+        box-shadow: none;
+    }
+}
+
+.levelsCard {
+    .mat-card {
+        box-shadow: none;
+    }
+}
+
+.armorCard {
+    .mat-card {
+        box-shadow: none;
+    }
+}
+
+app-identities {
+    width: 100%
+}
+app-resources {
+    width: 100%
+}
+app-levels {
+    width: 100%
+}
+app-armors {
+    width: 100%
+}
+
+app-skills {
+    width: 100%
+}
+
+app-statistics {
+    width: 100%
+}
+
+app-money {
+    width: 100%
+}
+
+.debug {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 99;
+}

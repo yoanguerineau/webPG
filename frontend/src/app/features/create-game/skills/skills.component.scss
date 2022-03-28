@@ -1,0 +1,15 @@
+@import "../create-game.component.scss";
+
+.skillsCard {
+    .mainCard {
+        box-shadow: none;
+
+        .subCards {
+            margin-top: 20px;
+        }
+
+        .mat-divider {
+            margin-bottom: 20px;
+        }
+    }
+}
