@@ -23,30 +23,30 @@ export class ResourcesComponent implements OnInit {
     }
     this.resourcesFormGroup = this.fb.group({
     });
-    this.updateForm();
+    this.updateForm(-1);
 
     this.fullyInit=true;
   }
 
-  setIsResourceSelected(event: MatCheckboxChange, resourceType: string) {
-    this.isResourceSelected[this.resourceTypes.indexOf(resourceType)] = event.checked;
-    let subForm = this.resourcesFormGroup.get(this.resourceTypes.indexOf(resourceType).toString());
-    subForm?.get('value')?.setValue(null);
+  setIsResourceSelected(event: MatCheckboxChange, index: number) {
+    this.isResourceSelected[index] = event.checked;
+    this.updateForm(index);
   }
 
   isResourceTypeSelected(resource: string)  {
     return this.isResourceSelected[this.resourceTypes.indexOf(resource)];
   }
 
-  updateForm() {
+  updateForm(indexUpdated: number) {
     for(let i=0; i<this.resourceTypes.length; i++) {
-      if(this.resourceTypes[i]) {
+      if(this.isResourceSelected[i]) {
         this.resourcesFormGroup.addControl(i.toString(), this.fb.group({
           value: new FormControl(),
           type: new FormControl(this.resourceTypes[i])
         }));
+      } else if(indexUpdated == i) {
+        this.resourcesFormGroup.removeControl(indexUpdated.toString());
       }
     }
   }
-
 }

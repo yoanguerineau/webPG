@@ -33,7 +33,6 @@ export class NewCharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.newCharFormGroup = this.fb.group({ });
-    console.log(this.identitiesComponent);
   }
 
   ngAfterViewInit() {
@@ -103,7 +102,6 @@ export class NewCharacterComponent implements OnInit {
             case "statistics":
               tempCharacter.statistics.push(val);
               break;
-              break;
             default:
               break;
           }
@@ -115,9 +113,7 @@ export class NewCharacterComponent implements OnInit {
     tempCharacter.money.symbol = this.newCharFormGroup.get('money')!.value['symbol'];
     tempCharacter.money.value = this.newCharFormGroup.get('money')!.value['value'];
 
-    if(this.isValidCharacterForm(tempCharacter)) {
-      this.characterEvent.emit(tempCharacter);
-    }
+    this.characterEvent.emit(tempCharacter);
   }
 
   isValidCharacterForm(c: Character): boolean {

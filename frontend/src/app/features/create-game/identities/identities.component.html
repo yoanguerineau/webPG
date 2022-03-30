@@ -9,7 +9,7 @@
                     <div formGroupName="{{i.toString()}}">
                         <mat-form-field appearance="outline">
                             <mat-label>Nom n°{{i}}</mat-label>
-                            <input matInput maxlength="20" formControlName="name">
+                            <input matInput maxlength="20" formControlName="name" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Type de nom</mat-label>
@@ -22,3 +22,5 @@
             </div>
         </div>
 </form>
+
+<button mat-button matStepperNext [disabled]="!this.identitiesFormGroup.valid">Suivant</button>

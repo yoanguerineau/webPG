@@ -1,1 +1,9 @@
-@import "../create-game.component.scss"
+@import "../create-game.component.scss";
+
+.formResource {
+    width: 50%;
+
+    mat-form-field{
+        display: block;
+    }
+}

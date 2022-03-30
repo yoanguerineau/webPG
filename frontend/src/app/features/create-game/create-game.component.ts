@@ -11,8 +11,7 @@ import { PopupComponent } from '../popup/popup.component';
   styleUrls: ['./create-game.component.scss']
 })
 export class CreateGameComponent implements OnInit {
-
-  public createGameFormGroup!: FormGroup;
+  
   public showCreateCharacter = false;
 
   public characterList: Character[] = [];

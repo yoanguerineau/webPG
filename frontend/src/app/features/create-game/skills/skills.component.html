@@ -25,3 +25,9 @@
             </div>
         </div>
 </form>
+
+<div fxLayout="row" fxLayoutAlign="start" class="matStepperButtons">
+    <button mat-button matStepperPrevious>Précédent</button>
+    <mat-divider [vertical]="true"></mat-divider>
+    <button mat-button matStepperNext [disabled]="!this.skillsFormGroup.valid">Suivant</button>
+</div>

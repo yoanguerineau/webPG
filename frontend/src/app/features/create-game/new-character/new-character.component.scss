@@ -1,5 +1,5 @@
-.mat-divider {
-    width: 80%;
+.mat-horizontal-stepper-header {
+    pointer-events: none;
 }
 
 .componentHeader {
@@ -12,9 +12,13 @@
     }
 }
 
+::ng-deep .mat-horizontal-stepper-header {
+    pointer-events: none !important;
+}
+
 mat-stepper {
     width: 90%;
-    mat-divider {
+    .matDividerEtapier {
         transform: translate(50%);
         width: 50%;
         margin: 20px;

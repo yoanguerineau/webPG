@@ -1,1 +1,17 @@
-<p>join-game works!</p>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <h1>Rejoindre une partie</h1>
+    <mat-divider></mat-divider>
+    <form [formGroup]="joinGameFormGroup" *ngIf="fullyInit" (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+            <mat-form-field appearance="outline">
+                <mat-label>Pseudo</mat-label>
+                <input matInput required formControlName="login">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Id de la partie</mat-label>
+                <input matInput required formControlName="id">
+            </mat-form-field>
+            <button type="submit" mat-button [disabled]="!this.joinGameFormGroup.valid">Rejoindre la partie</button>
+        </div>
+    </form>
+</div>

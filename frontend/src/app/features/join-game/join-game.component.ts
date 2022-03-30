@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-join-game',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoinGameComponent implements OnInit {
 
-  constructor() { }
+  public joinGameFormGroup!: FormGroup;
+  public fullyInit = false;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.joinGameFormGroup = this.fb.group({
+      login: new FormControl(),
+      id: new FormControl()
+    });
+
+    this.fullyInit = true;
+  }
+
+  onSubmit() {
+    console.log(this.joinGameFormGroup.value);
   }
 
 }
