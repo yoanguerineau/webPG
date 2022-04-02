@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CreateGameModule } from './create-game/create-game.module';
 import { PopupComponent } from './popup/popup.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PopupComponent } from './popup/popup.component';
     JoinGameComponent,
     UnknownPageComponent,
     PopupComponent,
+    GameComponent
   ],
   exports: [
     MenuComponent,
@@ -24,6 +26,7 @@ import { PopupComponent } from './popup/popup.component';
     JoinGameComponent,
     UnknownPageComponent,
     PopupComponent,
+    GameComponent
   ],
   imports: [
     MaterialModule,

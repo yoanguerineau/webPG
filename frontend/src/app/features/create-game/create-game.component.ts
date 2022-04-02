@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import playerOne from '../../../assets/json/character/playerOne.json'
 import { MatDialog } from '@angular/material/dialog';
 import { Character } from 'src/assets/models/character';
 import { PopupComponent } from '../popup/popup.component';
+import { BackendService } from 'src/app/services/backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-game',
@@ -16,7 +17,7 @@ export class CreateGameComponent implements OnInit {
 
   public characterList: Character[] = [];
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public backendService: BackendService, private router: Router) {
   }
 
   setChowCreateCharacter(val: boolean) {
@@ -60,6 +61,13 @@ export class CreateGameComponent implements OnInit {
   }
 
   startGame() {
-    console.warn("This feature is not implemented yet");
+    this.backendService.createGame(this.characterList).subscribe({
+      next: value => {
+        this.router.navigate(['/game'], { queryParams: { id: value}});
+      },
+      error: err => {
+        console.error(err);
+      }
+    });
   }
 }

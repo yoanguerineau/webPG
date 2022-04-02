@@ -11,11 +11,15 @@ import { CreateGameComponent } from './features/create-game/create-game.componen
 import { JoinGameComponent } from './features/join-game/join-game.component';
 import { MenuComponent } from './features/menu/menu.component';
 import { UnknownPageComponent } from './features/unknown-page/unknown-page.component';
+import { ApiModule } from './core/api/v1';
+import { HttpClientModule } from '@angular/common/http';
+import { GameComponent } from './features/game/game.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
   { path: 'create', component: CreateGameComponent },
   { path: 'join', component: JoinGameComponent },
+  { path: 'game', component: GameComponent },
   { path: '**', component: UnknownPageComponent}
 ]
 
@@ -29,7 +33,9 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     FeaturesModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ApiModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
