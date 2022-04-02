@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WebSocketService } from 'src/app/services/websocket.service';
+import { Client } from 'stompjs';
 
 @Component({
   selector: 'app-game',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  gameMasterWebSocket!: Client;
+
+  constructor(private webSocketService: WebSocketService) {
+    this.gameMasterWebSocket = webSocketService.getGameMaster();
+   }
 
   ngOnInit(): void {
+    let _this = this;
+    this.gameMasterWebSocket.connect({}, function(frame) {
+      _this.gameMasterWebSocket.subscribe('/topic/greetings', function(message) {
+        console.log(message.body);
+      });
+    });
   }
 
+  debug() {
+    this.gameMasterWebSocket.send('/app/hello', {}, "TEST");
+  }
 }

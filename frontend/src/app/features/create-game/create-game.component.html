@@ -1,6 +1,6 @@
 <button class="debug" mat-raised-button color="warn" (click)="debugCheckForm()">Vérifier les joueurs</button>
 <app-new-character *ngIf="showCreateCharacter" (characterEvent)="addCharacter($event)" (cancelCharacterEvent)="setChowCreateCharacter($event)"></app-new-character>
-<div *ngIf="!showCreateCharacter" class="characters">
+<div *ngIf="!showCreateCharacter && !showSpinner" class="characters">
     <h1>Liste des joueurs</h1>
     <div *ngFor="let character of characterList; let i = index">
         <button mat-button (click)="showCharacterInfos(i)"><mat-icon>people</mat-icon> Personnage n°{{i+1}}</button>
@@ -13,3 +13,5 @@
         <button mat-raised-button color="primary" [disabled]="isGameStartBlocked()" (click)="startGame()">Lancer la partie <mat-icon>play_circle_filled</mat-icon></button>
     </div>
 </div>
+
+<mat-spinner *ngIf="showSpinner"></mat-spinner>

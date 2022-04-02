@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class CreateGameComponent implements OnInit {
   
+  public showSpinner = false;
+
   public showCreateCharacter = false;
 
   public characterList: Character[] = [];
@@ -61,6 +63,8 @@ export class CreateGameComponent implements OnInit {
   }
 
   startGame() {
+    console.log("Starting a new game...");
+    this.showSpinner = true;
     this.backendService.createGame(this.characterList).subscribe({
       next: value => {
         this.router.navigate(['/game'], { queryParams: { id: value}});

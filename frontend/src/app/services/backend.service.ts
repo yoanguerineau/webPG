@@ -16,5 +16,5 @@ export class BackendService {
 
   public createGame(characterList: Character[]): Observable<string> {
     return this.gameMasterController.createGame(characterList);
-  }
+  } 
 }
